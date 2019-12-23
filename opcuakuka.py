@@ -1,4 +1,7 @@
 
+import sys
+sys.path.insert(0, "..")
+
 from opcua import Client
 from opcua import ua
 
@@ -22,10 +25,10 @@ if __name__ == "__main__":
         # print( root.get_children()[0].get_children()[1].get_children())
         print("-------------------------------------------------------------------------------------------")
         print(root.get_children()[0].get_children()[1].get_children()[0].get_children()[4].get_children()[1].get_children()[4].get_children()[2].get_children())
-        artsignals = root.get_children()[0].get_children()[1].get_children()[0].get_children()[4].get_children()[1].get_children()[4].get_children()[2].get_children()[1].get_children()
+        artsignals = root.get_children()[0].get_children()[1].get_children()[0].get_children()[4].get_children()[1].get_children()[4].get_children()[2].get_children()[1].get_variables()
         for i in artsignals:
             # print(i, "=", i.get_data_value())
-            print(i, "=", i.get_value())
+            print(str(i)[len("Node(StringNodeId(ns=5;s=MotionDeviceSystem.ProcessData.R1.TP.ART."):-2], "=", i.get_value())
         #varprint("Children of root are: ", root.get_children()) = client.get_node("ns=3;i=2002")
         #var.get_data_value() # get value of node as a DataValue object
         #var.get_value() # get value of node as a python builtin
